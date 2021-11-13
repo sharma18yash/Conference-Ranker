@@ -26,8 +26,9 @@ def index2():
    if request.method=="GET":
       query = request.args.get('query', None) 
       print(query)
+      collection2=collection.find({ }).sort("Rank")
       output = []
-      for i in collection.find():
+      for i in collection2:
          title = i["Title"]
          Acronym = i["Acronym"]
          Source = i["Source"]
