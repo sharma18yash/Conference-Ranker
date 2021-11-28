@@ -102,9 +102,9 @@ def index2():
             except:
                location="" 
             try:
-               url_for = i["url_for"]
+               url_for1 = i["url_for"]
             except KeyError:
-               url_for = ""
+               url_for1 = ""
             if query.lower() in title.lower():
                d = {}
                d["Title"] = title
@@ -114,13 +114,15 @@ def index2():
                d["Start_Date"] = startDate
                d["End_Date"] = endDate
                d["Location"] = location
-               d["url_for"] = url_for
+               d["url_for"] = url_for1
                output.append(d)
          print(output)
       return render_template('index2.html', output=output, recentQ = recentQ)
    if request.method=="POST":
       query1 = request.form['sField']
       print(query1)
+      return redirect(url_for("index2", query=query1))
+      
 
 
 
