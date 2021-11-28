@@ -23,6 +23,7 @@ app.static_folder = 'static'
 
 
 class freq1(db.Model):
+   ''' Data model for freq1 '''
    id=db.Column(db.Integer,primary_key=True,autoincrement=True)
    content = db.Column(db.String(200))
    freq = db.Column(db.Integer)
@@ -32,6 +33,7 @@ class freq1(db.Model):
 
 
 def get_nlp(query):
+   ''' It is used for generating query for semantic search '''
    spell = Speller(lang='en')
    query = query.lower()
    inc = ["paper", "conference", "show", "computer", "computing","conferences","research"]
@@ -66,6 +68,7 @@ def get_nlp(query):
 
 @app.route('/', methods=['GET', 'POST'])
 def hello_world():
+   ''' It deals with flask pipeline for landing pages '''
    if request.method=='POST':
       query = request.form['sField']
       print(query)
@@ -95,6 +98,7 @@ def srt(e):
       return e["Rank"]
 @app.route("/index2", methods=['GET', 'POST'])
 def index2():
+   ''' It is flask pipeline for search results page '''
    if request.method=="GET":
       query = request.args.get('query', None) 
       queries = get_nlp(query)
@@ -170,5 +174,5 @@ def index2():
 
 
 if __name__ == '__main__':
-   db.create_all()
+   db.create_all()   # Create sql tables for our data models
    app.run(port=8000,debug=True)
