@@ -37,6 +37,8 @@ Run the following commands in order from the **Conference-Ranker-Main** director
 
 `python3 hello.py`
 
+Install mongodb and import confall.json in `conf1` database as `confall` collection
+
 -----------------------
 
 **Made By Penta Squad**
