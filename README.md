@@ -38,6 +38,8 @@ Run the following commands in order from the **Conference-Ranker-Main** director
 
 `python3 hello.py`
 
+`python -m spacy download en_core_web_sm`
+
 Install mongodb and import confall.json in `conf1` database as `confall` collection
 
 -----------------------
