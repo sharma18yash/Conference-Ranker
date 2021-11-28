@@ -1,113 +1,127 @@
 <html>
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="author" content="colorlib.com">
-    <link href="https://fonts.googleapis.com/css?family=Poppins:400,600,700" rel="stylesheet" />
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css') }}">
-  </head>
-  <body>
-    <div class="s010">
-      <form method="post">
-        <div class="inner-form">
-          <h2>Search Conferences</h2>
-          <div class="basic-search">
-            <div class="input-field">
-              <input id="search" type="text" placeholder="" name="sField"/>
-              <div class="icon-wrap">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                  <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path>
-                </svg>
-              </div>
-            </div>
-          </div>
-          <div class="advance-search">
-            <span class="desc">ADVANCED SEARCH</span>
-            <div class="row">
-              <div class="input-field">
-                <div class="input-select">
-                  <select data-trigger="" name="choices-single-defaul">
-                    <option placeholder="" value="">Search By</option>
-                    <option>All</option>
-                    <option>Title</option>
-                    <option>Acronym</option>
-                    <option>Rank</option>
-                    <option>Field of Search</option>
-                  </select>
-                </div>
-              </div>
-              <div class="input-field">
-                <div class="input-select">
-                  <select data-trigger="" name="choices-single-defaul">
-                    <option placeholder="" value="">Source</option>
-                    <option>All</option>
-                    <option>Core 2021</option>
-                    <option>Core 2020</option>
-                    <option>Core 2018</option>
-                    <option>Core 2017</option>
-                    <option>Core 2014</option>
-                    <option>Core 2013</option>
-                    <option>ERA 2010</option>
-                    <option>Core 2008</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-            <div class="row third">
-              <div class="input-field">
-                <div class="result-count">
-                  <span>    </span>results</div>
-                <div class="group-btn">
-                  <button class="btn-delete" id="delete">RESET</button>
-                  <button class="btn-search" href="index2.html">SEARCH</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </form>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="author" content="colorlib.com">
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,600,700" rel="stylesheet" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css') }}">
+
+</head>
+
+<body>
+
+
+  <div class="s010">
+
+
+    <div style="color: #fff;position: absolute;top: 0;left: 0;font-size: 25;">
+      <a href="/">
+        <h1 style="color: #fff;">Conference</h1>
+        <h1 style="color: rgb(78, 75, 75);">Ranker</h1>
+      </a>
+
     </div>
-    
-    <script src="js/extention/choices.js"></script>
-    <script>
-      const customSelects = document.querySelectorAll("select");
-      const deleteBtn = document.getElementById('delete')
-      const choices = new Choices('select',
+
+
+
+
+    <form method="post">
+      <div class="inner-form">
+        <div class="basic-search">
+          <div class="input-field">
+            <input id="search" type="text" placeholder="" name="sField" />
+          </div>
+
+        </div>
+        <button class="btn-search2" href="index2.html" style="min-width: 100px;
+          height: 40px;
+          padding: 0 15px;
+          /* background: linear-gradient(to right, #2c6dd5 0%, #2c6dd5 28%, #ff4b5a 91%, #ff4b5a 100%); */
+          background:black;
+          white-space: nowrap;
+          border-radius: 20px;
+          font-size: 14px;
+          color: #fff;
+          transition: all .2s ease-out, color .2s ease-out;
+          border: 0;
+          cursor: pointer;
+          font-weight: 400;
+          box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.15);
+          /* z-index: 0; */
+          float: right;
+          position: relative;">
+          SEARCH
+        </button>
+
+
+    </form>
+    <div style="color: rgb(156, 181, 248);">
+      <b>Recent search terms:</b>
+      <ul style="color: rgb(247, 248, 156);display: inline;list-style-type:none">
+        {% for i in recentQ %}
+        <li>
+          <form method="post">
+            <input id="src2" type="hidden" type="text" placeholder={{i}} name="sField" value="{{i}}" />
+
+            <button action="index2.html" style="background: none;
+              color: inherit;
+              border: none;
+              padding: 0;
+              font: inherit;
+              cursor: pointer;
+              outline: inherit;">{{i}}</button>
+
+
+          </form>
+        </li>
+        {% endfor %}
+
+      </ul>
+
+    </div>
+  </div>
+
+
+  </div>
+  </form>
+  </div>
+
+
+  <script src="js/extention/choices.js"></script>
+  <script>
+    const customSelects = document.querySelectorAll("select");
+    const deleteBtn = document.getElementById('delete')
+    const choices = new Choices('select',
       {
         searchEnabled: false,
         itemSelectText: '',
         removeItemButton: true,
       });
-      for (let i = 0; i < customSelects.length; i++)
-      {
-        customSelects[i].addEventListener('addItem', function(event)
-        {
-          if (event.detail.value)
-          {
-            let parent = this.parentNode.parentNode
-            parent.classList.add('valid')
-            parent.classList.remove('invalid')
-          }
-          else
-          {
-            
-            let parent = this.parentNode.parentNode
-            parent.classList.add('invalid')
-            parent.classList.remove('valid')
-          }
-        }, false);
-      }
-      deleteBtn.addEventListener("click", function(e)
-      {
-        e.preventDefault()
-        const deleteAll = document.querySelectorAll('.choices__button')
-        for (let i = 0; i < deleteAll.length; i++)
-        {
-          deleteAll[i].click();
+    for (let i = 0; i < customSelects.length; i++) {
+      customSelects[i].addEventListener('addItem', function (event) {
+        if (event.detail.value) {
+          let parent = this.parentNode.parentNode
+          parent.classList.add('valid')
+          parent.classList.remove('invalid')
         }
-      });
+        else {
+          let parent = this.parentNode.parentNode
+          parent.classList.add('invalid')
+          parent.classList.remove('valid')
+        }
+      }, false);
+    }
+    deleteBtn.addEventListener("click", function (e) {
+      e.preventDefault()
+      const deleteAll = document.querySelectorAll('.choices__button')
+      for (let i = 0; i < deleteAll.length; i++) {
+        deleteAll[i].click();
+      }
+    });
 
-    </script>
-  </body>
+  </script>
+</body>
+
 </html>
