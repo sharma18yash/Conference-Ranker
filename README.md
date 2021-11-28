@@ -37,5 +37,6 @@ Run the following commands in order from the **Conference-Ranker-Main** director
 
 `python3 hello.py`
 
+-----------------------
 
 **Made By Penta Squad**
