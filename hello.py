@@ -1,3 +1,8 @@
+'''
+Module for semantic search. 
+Semantic search allows to do searching using meaning and other contextual information.
+NLP package used: Spacy
+'''
 from flask import Flask, redirect, url_for, request
 # from flask.templating import render_template
 from flask import Flask, render_template, request
