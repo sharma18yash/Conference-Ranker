@@ -41,9 +41,9 @@ def get_nlp(query):
                   "nlp":"natural language processing",
                   "cn":"networks", "dbms":"database",
                   "ai":"artificial intelligence","cs":"computer science",
-                  "os":"operating system","cv":"computer vision",
-                  "p2p":"peer to peer","it":"information technolgy",
-                  "se":"software engineering","toc":"theory of computation",
+                  "os":"operating system","cv":"vision",
+                  "p2p":"peer","it":"information technolgy",
+                  "se":"software",
                   "biotech":"bioinformatics biology","tech":"engineer",
                   "bioinformatics":"bioinformatics biology",
                   "bio":"biology"}
