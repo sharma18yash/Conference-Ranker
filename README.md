@@ -25,6 +25,7 @@ _
 
 #### How to run the project
 Run the following commands in order from the **Conference-Ranker-Main** directory
+
 `pip install virtualenv`
 
 `virtualenv env`
